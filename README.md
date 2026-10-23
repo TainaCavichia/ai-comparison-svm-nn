@@ -1,54 +1,52 @@
 # ai-comparison-svm-nn
 
-Este repositório contém uma implementação prática e puramente matemática de dois dos algoritmos mais icônicos da Inteligência Artificial: Support Vector Machines (SVM) e Redes Neurais Artificiais (NN). 
+This repository contains a practical, math-first implementation of two of the most iconic algorithms in Artificial Intelligence: Support Vector Machines (SVM) and Artificial Neural Networks (ANN). 
 
-O objetivo principal deste projeto é aplicar ambos os modelos no banco de dados MNIST (classificação de dígitos manuscritos de 0 a 9) para analisar e comparar o desempenho de cada abordagem, desenvolvendo tudo do zero utilizando apenas NumPy e Pandas.
-
----
-
-## Diferencial do Projeto
-
-Diferente de projetos que utilizam bibliotecas prontas como scikit-learn, TensorFlow ou PyTorch, este código foi construído focando na transformação de equações matemáticas diretamente em lógica de programação linear e matricial:
-- Sem frameworks de ML: Toda a otimização e álgebra linear são resolvidas nativamente com operações de matrizes do NumPy.
-- Foco conceitual: Código limpo e comentado para demonstrar o funcionamento interno de algoritmos de otimização e funções de custo.
+The main objective of this project is to apply both models to the MNIST dataset (handwritten digit classification from 0 to 9) to analyze and compare their performance, building everything from scratch using only NumPy and Pandas.
 
 ---
 
-## Modelos Implementados
+## Project Highlights
 
-### 1. Support Vector Machine (SVM) Linear
-- Abordagem Multiclasse: Estratégia One-vs-One (OvO), treinando um comitê de 45 classificadores binários independentes para cobrir as 10 classes do MNIST.
-- Otimização: Gradiente Descendente Estocástico (SGD) com suporte a atualizações refinadas.
-- Função de Custo: Hinge Loss com Regularização L2 para maximização da margem geométrica.
-
-### 2. Rede Neural (Single-Layer Perceptron)
-- Arquitetura: Uma rede Perceptron de Camada Única, conectando diretamente as 784 features de entrada (pixels) aos 10 neurônios de saída (um para cada dígito).
-- Algoritmo Central: Ajuste de pesos via Gradiente Descendente aplicado à camada de saída.
-- Ativação e Custo: Saída processada via função Softmax para gerar probabilidades e otimizada através da perda de Entropia Cruzada (Cross-Entropy Loss).
+Unlike projects that rely on out-of-the-box libraries like scikit-learn, TensorFlow, or PyTorch, this code was built by translating mathematical equations directly into linear and matrix programming logic:
+- **No ML Frameworks:** All optimization and linear algebra are solved natively using NumPy array operations.
+- **Conceptual Focus:** Clean, well-commented code designed to demonstrate the inner workings of optimization algorithms and cost functions.
 
 ---
 
-## Técnicas de Otimização (Melhoria do Treino)
+## Implemented Models
 
-Para acelerar a convergência e garantir melhores taxas de acurácia no MNIST, ambos os modelos foram aprimorados com:
-- Mini-batch Gradient Descent: O treino não é feito amostra por amostra e nem com o dataset inteiro de uma vez. Os dados são processados em pequenos lotes (mini-batches), equilibrando estabilidade matemática e velocidade computacional.
-- Learning Rate Decay: Redução gradual e programada da taxa de aprendizado ao longo das épocas. Isso permite que os modelos deem passos largos no início do treino e passos refinados no final, evitando que os pesos oscilem indefinidamente longe do ponto ideal de convergência.
+### 1. Linear Support Vector Machine (SVM)
+- **Multi-Class Approach:** One-vs-One (OvO) strategy, training an ensemble of 45 independent binary classifiers to cover the 10 classes of MNIST.
+- **Optimization:** Stochastic Gradient Descent (SGD) with refined update mechanisms.
+- **Cost Function:** Hinge Loss with L2 Regularization for geometric margin maximization.
 
----
-
-## Pipeline de Execução
-
-1. Carga e Manipulação de Dados: Leitura e estruturação das matrizes de pixels com Pandas.
-2. Pré-processamento: Normalização Z-score para garantir estabilidade e convergência rápida dos gradientes.
-3. Treinamento Otimizado: Execução do loop de épocas utilizando mini-batches e decaimento de taxa de aprendizado.
-4. Avaliação: Geração de métricas de acurácia e matriz de confusão para identificar onde ocorrem os maiores erros de predição (ex: confundir o dígito 4 com o 9).
+### 2. Neural Network (Single-Layer Perceptron)
+- **Architecture:** A single-layer Perceptron network connecting the 784 input features (pixels) directly to the 10 output neurons (one for each digit).
+- **Core Algorithm:** Weight adjustment via Gradient Descent applied to the output layer.
+- **Activation and Cost:** Output processed via the Softmax function to generate probabilities and optimized using Cross-Entropy Loss.
 
 ---
 
-## Tecnologias Utilizadas
+## Optimization Techniques (Training Enhancements)
 
-- Python (Linguagem base)
-- NumPy (Cálculo numérico, matrizes e álgebra linear)
-- Pandas (Estruturação e carregamento do dataset)
+To accelerate convergence and ensure high accuracy on MNIST, both models were enhanced with:
+- **Mini-batch Gradient Descent:** Training is performed neither sample-by-sample nor on the full dataset at once. Data is processed in mini-batches, balancing mathematical stability and computational speed.
+- **Learning Rate Decay:** Gradual and scheduled reduction of the learning rate across epochs. This allows the models to take large steps early in training and refined steps later, preventing weights from oscillating indefinitely away from the optimal convergence point.
 
 ---
+
+## Execution Pipeline
+
+1. **Data Loading and Manipulation:** Reading and structuring pixel matrices with Pandas.
+2. **Preprocessing:** Z-score normalization to ensure numerical stability and rapid gradient convergence.
+3. **Optimized Training:** Executing the epoch training loop using mini-batches and learning rate decay.
+4. **Evaluation:** Generating accuracy metrics and confusion matrices to identify major prediction failure modes (e.g., confusing the digit 4 with 9).
+
+---
+
+## Technologies Used
+
+- Python (Base language)
+- NumPy (Numerical computing, matrices, and linear algebra)
+- Pandas (Dataset structuring and loading)
